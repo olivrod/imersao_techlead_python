@@ -1,0 +1,5 @@
+este
+arquivo
+contem
+texto para
+teste do ex01
