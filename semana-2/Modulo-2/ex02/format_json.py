@@ -1,11 +1,12 @@
 import requests
+from typing import Tuple, Any
 
-def do_GET():
+def do_GET() -> Tuple[int, Any]:
     url = "https://assets.breatheco.de/apis/fake/sample/project1.php"
     response = requests.get(url)
     return response.status_code, response.json()
 
-def main():
+def main() -> None:
     status_get, data_get = do_GET()
     # print(status_get, data_get)
     print(f"Projeto: {data_get['name']}, Imagem: {data_get['images'][0]}")
