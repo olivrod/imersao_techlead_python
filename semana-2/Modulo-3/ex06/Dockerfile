@@ -7,7 +7,7 @@ CMD ["bash", "run.sh"]
 
 
 # Subir PostgreSQL com Docker
-# export POSTGRES_PASSWORD=asd123
+# export POSTGRES_PASSWORD=postgres
 
 # docker run --name postgres \
 #   -v postgres-data:/var/lib/postgresql/data \
@@ -23,9 +23,9 @@ CMD ["bash", "run.sh"]
 
 # docker ps -a
 # Para o docker em execucao:
-# docker stop postgres
-# docker start postgres
-# docker rm -f -v postgres
+# docker stop ningipoints-postgres
+# docker start ningipoints-postgres
+# docker rm -f -v ningipoints-postgres
 
-# psql -h localhost -U postgres -d ningipoints
+# psql -h localhost -U ningipoints-postgres -d ningipoints
 # \dt

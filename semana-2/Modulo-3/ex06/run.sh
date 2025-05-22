@@ -5,7 +5,7 @@ docker network inspect ningipoints-network >/dev/null 2>&1 || \
 docker network create ningipoints-network
 
 # Sobe o container do banco de dados, se ainda não estiver rodando
-docker ps | grep ningipoints-postgres >/dev/null 2>&1 || \
+docker ps -a | grep ningipoints-postgres >/dev/null 2>&1 || \
 docker run -d \
   --name ningipoints-postgres \
   --network ningipoints-network \
@@ -24,3 +24,6 @@ docker run -d \
   --network ningipoints-network \
   -p 8080:8080 \
   ningipoints-api
+
+# chmod +x run.sh
+# ./run.sh
