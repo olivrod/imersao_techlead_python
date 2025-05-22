@@ -56,3 +56,5 @@ def form() -> Any:
 
 
 # no main funcion to run with uvicorn
+# uvicorn mojifinder:app --reload --reload-include '*.html'
+# http://127.0.0.1:8000/

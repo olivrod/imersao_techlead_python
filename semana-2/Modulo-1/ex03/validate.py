@@ -26,7 +26,6 @@ def convert_errors(
         new_errors.append(error)
     return new_errors
 
-age: Annotated[int, lambda v: v > 0]
 
 class Account(BaseModel):
     name: str

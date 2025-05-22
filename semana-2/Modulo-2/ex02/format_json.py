@@ -15,7 +15,7 @@ if __name__ == "__main__":
     main()
 
 
-# ?> python format_json.py
+# ?> python3 format_json.py
 # Projeto: 'eLearning', Imagem: 'https://intra.42.fr?image=178'
 
 # {

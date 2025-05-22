@@ -47,8 +47,8 @@ def convert_errors(
 
 @app.post("/create")
 async def post_create(request: Request) -> JSONResponse:
+    dados = await request.json()
     try:
-        dados = await request.json()
         Account(**dados)
         return JSONResponse(status_code=201, content="Dados criados")
     except ValidationError as e:
