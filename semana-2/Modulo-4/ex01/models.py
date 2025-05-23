@@ -1,19 +1,45 @@
+import enum
 from pynamodb.models import Model
-from pynamodb.attributes import UnicodeAttribute, NumberAttribute, ListAttribute, MapAttribute
+from pynamodb.attributes import (
+    UnicodeAttribute,
+    NumberAttribute,
+    ListAttribute,
+    MapAttribute,
+    UTCDateTimeAttribute
+)
 from datetime import datetime
+import os
 
-class Operation(MapAttribute): # type: ignore
-    operation_type = UnicodeAttribute()
-    amount = NumberAttribute()
-    created_at = UnicodeAttribute(default=lambda: datetime.now().isoformat())
+# Configuração mínima necessária para rodar com DynamoDB Local
+os.environ["AWS_ACCESS_KEY_ID"] = "fake"
+os.environ["AWS_SECRET_ACCESS_KEY"] = "fake"
+
+class OperationType(enum.Enum):
+    debit = "debit"
+    credit = "credit"
+    
+class Operation(MapAttribute):
+    operation = UnicodeAttribute()  # "debit" ou "credit"
+    amount = NumberAttribute()      # Valor da operação
+    created_at = UTCDateTimeAttribute(default=str(datetime.now())) 
+    
+    def __init__(self, **attributes):
+        if "operation" in attributes:
+            op = attributes["operation"]
+            if isinstance(op, OperationType):
+                attributes["operation"] = op.value
+            elif op not in OperationType._value2member_map_:
+                raise ValueError(f"Operação inválida: {op}")
+        super().__init__(**attributes)
 
 class Account(Model):
     class Meta:
         table_name = "accounts"
         region = "us-east-1"
-        host = "http://localhost:8000"  # ou use o IP do container se necessário
+        host = os.getenv("DYNAMODB_URL", "http://localhost:8000")  # URL do DynamoDB Local
 
-    id = UnicodeAttribute(hash_key=True)
-    name = UnicodeAttribute()
-    email = UnicodeAttribute()
-    operations = ListAttribute(of=Operation)
+    id = NumberAttribute(hash_key=True)
+    name = UnicodeAttribute(null=False)
+    email = UnicodeAttribute(null=False)
+    balance = NumberAttribute(default=float("0.0"))
+    operations = ListAttribute(of=Operation, default=list)

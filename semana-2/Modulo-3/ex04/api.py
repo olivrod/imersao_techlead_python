@@ -26,7 +26,6 @@ def get_db() -> Generator[Session, None, None]:
 
 class Account(BaseModel):
     name: str
-    age: int = Field(..., gt=0)
     email: EmailStr
     balance: Decimal
     

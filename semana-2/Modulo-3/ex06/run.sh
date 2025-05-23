@@ -1,29 +1,42 @@
 #!/bin/bash
 
-# Cria a rede se ainda não existir
-docker network inspect ningipoints-network >/dev/null 2>&1 || \
-docker network create ningipoints-network
+Carrega variáveis do .env,
+export $(grep -v '^#' .env | xargs)
 
-# Sobe o container do banco de dados, se ainda não estiver rodando
-docker ps -a | grep ningipoints-postgres >/dev/null 2>&1 || \
+NETWORK_NAME=my_network
+DB_CONTAINER_NAME=my_postgres
+APP_CONTAINER_NAME=minha_api
+DB_IMAGE=postgres:16
+APP_IMAGE=minha_api
+APP_PORT=8080
+
+Cria rede,
+docker network create $NETWORK_NAME || echo "Rede já existe."
+
+Subindo o banco de dados,
 docker run -d \
-  --name ningipoints-postgres \
-  --network ningipoints-network \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=postgres \
-  -e POSTGRES_DB=ningipoints \
-  -p 5432:5432 \
-  postgres:15
+  --name $DB_CONTAINER_NAME \
+  --network $NETWORK_NAME \
+  -e POSTGRES_USER=$POSTGRES_USER \
+  -e POSTGRES_PASSWORD=$POSTGRES_PASSWORD \
+  -e POSTGRES_DB=$POSTGRES_DB \
+  -p $POSTGRES_PORT:5432 \
+  $DB_IMAGE
 
-# Build da imagem da aplicação
-docker build -t ningipoints-api .
+Aguarda o banco subir,
+sleep 5
 
-# Sobe a aplicação FastAPI
+Build,
+docker build -t $APP_IMAGE .
+
+Subindo app,
 docker run -d \
-  --name ningipoints-api \
-  --network ningipoints-network \
-  -p 8080:8080 \
-  ningipoints-api
-
-# chmod +x run.sh
-# ./run.sh
+  --name $APP_CONTAINER_NAME \
+  --network $NETWORK_NAME \
+  -e POSTGRES_USER=$POSTGRES_USER \
+  -e POSTGRES_PASSWORD=$POSTGRES_PASSWORD \
+  -e POSTGRES_DB=$POSTGRES_DB \
+  -e POSTGRES_HOST=$DB_CONTAINER_NAME \
+  -e POSTGRES_PORT=$POSTGRES_PORT \
+  -p $APP_PORT:8080 \
+  $APP_IMAGE
