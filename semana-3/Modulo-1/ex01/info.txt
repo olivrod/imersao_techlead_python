@@ -1,0 +1,21 @@
+Federed User: StudentRoleDay01/admitsun_2f1cb384-ace5-49
+Account ID: 533252222381
+EC2 (Elastic Compute Cloud):
+    - URL: https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1
+    - Descrição: Virtual Servers in the Cloud
+DynamoDB (Amazon DynamoDB):
+    - URL: https://us-east-1.console.aws.amazon.com/dynamodbv2/home?region=us-east-1
+    - Descrição: Managed NoSQL Database
+S3 (Simple Storage Service):
+    - URL: https://us-east-1.console.aws.amazon.com/s3/home?region=us-east-1
+    - Descrição: Scalable Storage in the Cloud
+
+ECS (Elastic Container Service):
+    - URL: https://us-east-1.console.aws.amazon.com/ecs/v2/home?region=us-east-1
+    - Descrição: Highly secure, reliable, and scalable way to run containers
+SQS (Simple Queue Service):
+    - URL: https://us-east-1.console.aws.amazon.com/sqs/v3/home?region=us-east-1
+    - Descrição: SQS Managed Message Queues
+Lambda (AWS Lambda):
+    - URL: https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1
+    - Descrição: Run code without thinking about servers

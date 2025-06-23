@@ -1,0 +1,3 @@
+arn:aws:ecs:us-east-1:533252222381:service/cluster42/Weather
+arn:aws:ecs:us-east-1:533252222381:service/cluster42/Reviews
+arn:aws:ecs:us-east-1:533252222381:service/cluster42/Destinations 

@@ -1,0 +1,1 @@
+arn:aws:ecs:us-east-1:533252222381:task/cluster42/d92bc3709d274b7cb070302977b54e52

@@ -1,0 +1,1 @@
+arn:aws:ecs:us-east-1:533252222381:cluster/cluster42
