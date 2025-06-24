@@ -1,0 +1,13 @@
+
+Tabela provisionada via tela de conexao das contas
+
+aws s3api create-bucket \
+  --bucket 42sp-rde-oliv-bucket \
+  --region us-east-1
+
+aws dynamodb describe-table \
+  --table-name Usuarios \
+  --region us-east-1 \
+  --output json > table_info.json
+
+aws s3api get-bucket-location --bucket 42sp-rde-oliv-bucket

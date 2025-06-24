@@ -1,0 +1,27 @@
+Instale o Docker (se ainda não tiver):
+sudo apt update
+sudo apt install docker.io -y
+sudo systemctl enable --now docker
+
+Adicione seu usuário ao grupo docker (opcional, para evitar sudo):
+sudo usermod -aG docker $USER
+# Depois, faça logout e login novamente.
+
+Instale o Localstack via pip (opcional, para usar localstack CLI):
+pip install localstack
+
+Inicie o Localstack usando Docker:
+docker run -d --name localstack -p 4566:4566 -p 4571:4571 localstack/localstack
+
+Verifique se está rodando:
+docker ps
+
+Carregar credenciais AWS:
+source ../../dev.env
+
+Stopa o docker:
+docker stop <CONTAINER_ID ou NOME>
+docker rm <CONTAINER_ID ou NOME>
+ou:
+docker stop $(docker ps -q)
+docker rm $(docker ps -aq)
