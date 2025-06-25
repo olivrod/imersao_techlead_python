@@ -1,0 +1,12 @@
+chmod +x put-bucket-policy.sh get-bucket-policy.sh
+
+
+?> ./get-bucket-policy.sh
+{
+"Version": "2012-10-17",
+"Statement": [
+...
+]
+}
+?> ./put-bucket-policy.sh
+Policy applied to bucket.
