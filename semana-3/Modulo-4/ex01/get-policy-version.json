@@ -1,0 +1,123 @@
+{
+    "PolicyVersion": {
+        "Document": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Action": [
+                        "ec2:DescribeInstances",
+                        "s3:ListBucket",
+                        "s3:GetObject",
+                        "s3:PutEncryptionConfiguration",
+                        "s3:DeleteBucket",
+                        "s3:DeleteObject",
+                        "iam:ListRoles",
+                        "iam:GetRole",
+                        "iam:ListPolicies",
+                        "iam:GetPolicy",
+                        "iam:GetPolicyVersion",
+                        "iam:ListRolePolicies",
+                        "iam:ListAttachedRolePolicies",
+                        "lambda:ListFunctions",
+                        "lambda:GetFunction",
+                        "lambda:InvokeFunction",
+                        "lambda:GetFunctionConfiguration",
+                        "lambda:GetPolicy",
+                        "lambda:AddPermission",
+                        "lambda:RemovePermission",
+                        "lambda:ListEventSourceMappings"
+                    ],
+                    "Resource": "*"
+                },
+                {
+                    "Sid": "Allowtoshowrolepolicy",
+                    "Effect": "Allow",
+                    "Action": [
+                        "iam:GetRolePolicy",
+                        "access-analyzer:ListPolicyGenerations"
+                    ],
+                    "Resource": [
+                        "arn:aws:iam::452807283394:role/D04-LambdaS3AccessRole",
+                        "arn:aws:access-analyzer:us-east-1:452807283394:*"
+                    ]
+                },
+                {
+                    "Sid": "BucketPermissions",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ec2:DescribeRegions",
+                        "s3:ListBuckets",
+                        "s3:ListBucket",
+                        "s3:GetObject",
+                        "s3:CreateBucket",
+                        "s3:PutObject",
+                        "s3:ListAllMyBuckets",
+                        "s3:GetBucketPolicy",
+                        "s3:GetBucketLocation",
+                        "s3:PutBucketPolicy",
+                        "s3:PutBucketNotification",
+                        "s3:GetBucketTagging",
+                        "notifications:ListNotificationHubs",
+                        "access-analyzer:ListAnalyzers",
+                        "application-autoscaling:DescribeScalingActivities",
+                        "cloudwatch:GetMetricData",
+                        "s3:PutBucketPublicAccessBlock",
+                        "iam:ListAttachedRolePolicies",
+                        "s3:GetBucketMetadataTableConfiguration",
+                        "s3:GetBucketVersioning",
+                        "s3:GetEncryptionConfiguration",
+                        "s3:GetIntelligentTieringConfiguration",
+                        "s3:GetBucketLogging",
+                        "cloudtrail:DescribeTrails",
+                        "s3:GetBucketNotification",
+                        "s3:GetBucketNotification",
+                        "s3:GetAccelerateConfiguration",
+                        "s3:GetBucketObjectLockConfiguration",
+                        "s3:GetBucketRequestPayment",
+                        "s3:GetBucketWebsite",
+                        "s3:GetBucketPublicAccessBlock",
+                        "s3:GetBucketOwnershipControls",
+                        "s3:GetBucketAcl",
+                        "s3:GetBucketCORS"
+                    ],
+                    "Resource": "*"
+                },
+                {
+                    "Effect": "Allow",
+                    "Action": [
+                        "lambda:CreateFunction",
+                        "lambda:UpdateFunctionCode",
+                        "lambda:UpdateFunctionConfiguration",
+                        "lambda:DeleteFunction"
+                    ],
+                    "Resource": "*"
+                },
+                {
+                    "Effect": "Allow",
+                    "Action": "iam:PassRole",
+                    "Resource": "arn:aws:iam::452807283394:role/D04-LambdaS3AccessRole",
+                    "Condition": {
+                        "StringEqualsIfExists": {
+                            "iam:PassedToService": "lambda.amazonaws.com"
+                        }
+                    }
+                },
+                {
+                    "Sid": "Logs",
+                    "Effect": "Allow",
+                    "Action": [
+                        "logs:DescribeLogGroups",
+                        "logs:DescribeLogStreams",
+                        "logs:GetLogEvents",
+                        "logs:FilterLogEvents"
+                    ],
+                    "Resource": "*"
+                }
+            ]
+        },
+        "VersionId": "v11",
+        "IsDefaultVersion": true,
+        "CreateDate": "2025-06-17T10:45:13Z"
+    }
+}

@@ -1,0 +1,14 @@
+Listar policies anexadas ao role StudentRoleDay04:
+aws iam list-attached-role-policies \
+  --role-name StudentRoleDay04 \
+  --output json > list-attached-role-policies.json
+
+Obter informações gerais sobre a policy encontrada:
+aws iam get-policy --policy-arn arn:aws:iam::452807283394:policy/StudentPolicyDay04 --output json > get-policy.json
+
+Obter informações da versão atual da policy:
+aws iam get-policy-version \
+  --policy-arn arn:aws:iam::452807283394:policy/StudentPolicyDay04 \
+  --version-id v11 \
+  --output json > get-policy-version.json
+

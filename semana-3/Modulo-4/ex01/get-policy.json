@@ -1,0 +1,15 @@
+{
+    "Policy": {
+        "PolicyName": "StudentPolicyDay04",
+        "PolicyId": "ANPAWS3LK2LBEYE2GFIX7",
+        "Arn": "arn:aws:iam::452807283394:policy/StudentPolicyDay04",
+        "Path": "/",
+        "DefaultVersionId": "v11",
+        "AttachmentCount": 1,
+        "PermissionsBoundaryUsageCount": 0,
+        "IsAttachable": true,
+        "CreateDate": "2025-04-16T17:44:20Z",
+        "UpdateDate": "2025-06-17T10:45:13Z",
+        "Tags": []
+    }
+}
