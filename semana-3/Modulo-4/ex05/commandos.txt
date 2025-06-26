@@ -1,13 +1,18 @@
 Inicie o Localstack usando Docker:
 docker run -d --name localstack --rm -it -p 127.0.0.1:4566:4566 -p 127.0.0.1:4510-4559:4510-4559 -v /run/user/$(id -u)/docker.sock:/var/run/docker.sock localstack/localstack
 
-docker run -d --name localstack -p 4566:4566 -p 4571:4571 localstack/localstack
-
 Verifique se está rodando:
 docker ps
 
 Carregar credenciais AWS:
 source ../../dev.env
+
+./create_buckets.sh 
+./put-bucket-notification.sh
+./create_packaged_lambda.sh
+docker logs localstack
+
+
 
 Stopa o docker:
 docker stop <CONTAINER_ID ou NOME>
@@ -28,4 +33,6 @@ aws lambda get-function \
   --output text
 
 aws --endpoint-url=http://localhost:4566 s3 cp arquivo.txt s3://42sp-rde-oliv-bucket/
+
+aws lambda delete-function --function-name packaged_lambda --endpoint-url http://localhost:4566
 

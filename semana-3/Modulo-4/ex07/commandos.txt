@@ -1,0 +1,11 @@
+Carregar credenciais AWS:
+source ../../prod.env
+
+./create_buckets.sh
+./create_lambda.sh
+./put-bucket-notification.sh
+aws s3 cp sample_images/42.jpg s3://42sp-rde-oliv-bucket2/
+aws s3 cp s3://42sp-rde-oliv-bucket-converted/42.jpg ./download/
+
+
+
