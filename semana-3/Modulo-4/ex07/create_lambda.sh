@@ -44,13 +44,13 @@ aws lambda add-permission \
   --source-arn arn:aws:s3:::$BUCKET \
   --region us-east-1
 
-aws lambda add-permission \
-  --function-name lambda_convert \
-  --action lambda:InvokeFunction \
-  --statement-id s3invoke \
-  --principal s3.amazonaws.com \
-  --source-arn arn:aws:s3:::$BUCKET_CONVERTED \
-  --region us-east-1
+# aws lambda add-permission \
+#   --function-name lambda_convert \
+#   --action lambda:InvokeFunction \
+#   --statement-id s3invoke \
+#   --principal s3.amazonaws.com \
+#   --source-arn arn:aws:s3:::$BUCKET_CONVERTED \
+#   --region us-east-1
 
 # Limpa arquivos temporários
 rm -rf package package.zip
