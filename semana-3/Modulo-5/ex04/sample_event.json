@@ -3,7 +3,7 @@
         {
             "messageId": "3ebfaff2-30c3-44f1-83c4-6a3141844e55",
             "receiptHandle": "OWY1ZWIxYzctMzUyNy00ODY5LTk2MTQtMTc1MDk2ZTE3MzY5IGFybjphd3M6c3FzOnVzLWVhc3QtMTowMDAwMDAwMDAwMDA6NDJzcC1pd2lsbGVucy1xdWV1ZSAzZWJmYWZmMi0zMGMzLTQ0ZjEtODNjNC02YTMxNDE4NDRlNTUgMTc0OTMzODQyMi43NjIzMjQz",
-            "body": "{\"Records\": [{\"eventVersion\": \"2.1\", \"eventSource\": \"aws:s3\", \"awsRegion\": \"us-east-1\", \"eventTime\": \"2025-06-07T23:20:17.319Z\", \"eventName\": \"ObjectCreated:Put\", \"userIdentity\": {\"principalId\": \"AIDAJDPLRKLG7UEXAMPLE\"}, \"requestParameters\": {\"sourceIPAddress\": \"127.0.0.1\"}, \"responseElements\": {\"x-amz-request-id\": \"1af21cc1\", \"x-amz-id-2\": \"eftixk72aD6Ap51TnqcoF8eFidJG9Z/2\"}, \"s3\": {\"s3SchemaVersion\": \"1.0\", \"configurationId\": \"tf-s3-queue-20250607230706231300000001\", \"bucket\": {\"name\": \"42sp-matherib-boletos\", \"ownerIdentity\": {\"principalId\": \"A3NL1KOZZKExample\"}, \"arn\": \"arn:aws:s3:::42sp-matherib-boletos\"}, \"object\": {\"key\": \"boletos_0000.csv\", \"sequencer\": \"0055AED6DCD90281E5\", \"eTag\": \"6789b3daf64eb71f4c0ec1cfa85ec09a\", \"size\": 34618}}}]}",
+            "body": "{\"Records\": [{\"eventVersion\": \"2.1\", \"eventSource\": \"aws:s3\", \"awsRegion\": \"us-east-1\", \"eventTime\": \"2025-06-07T23:20:17.319Z\", \"eventName\": \"ObjectCreated:Put\", \"userIdentity\": {\"principalId\": \"AIDAJDPLRKLG7UEXAMPLE\"}, \"requestParameters\": {\"sourceIPAddress\": \"127.0.0.1\"}, \"responseElements\": {\"x-amz-request-id\": \"1af21cc1\", \"x-amz-id-2\": \"eftixk72aD6Ap51TnqcoF8eFidJG9Z/2\"}, \"s3\": {\"s3SchemaVersion\": \"1.0\", \"configurationId\": \"tf-s3-queue-20250607230706231300000001\", \"bucket\": {\"name\": \"42sp-rde-oliv-boletos\", \"ownerIdentity\": {\"principalId\": \"A3NL1KOZZKExample\"}, \"arn\": \"arn:aws:s3:::42sp-rde-oliv-boletos\"}, \"object\": {\"key\": \"boletos_0000.csv\", \"sequencer\": \"0055AED6DCD90281E5\", \"eTag\": \"6789b3daf64eb71f4c0ec1cfa85ec09a\", \"size\": 34618}}}]}",
             "attributes": {
                 "SenderId": "000000000000",
                 "SentTimestamp": "1749338417340",
@@ -12,7 +12,7 @@
             },
             "messageAttributes": {},
             "md5OfBody": "5e3c61545c35d26a48658bc97874f9c5",
-            "eventSourceARN": "arn:aws:sqs:us-east-1:000000000000:42sp-MATHERIB-queue",
+            "eventSourceARN": "arn:aws:sqs:us-east-1:000000000000:42sp-rde-oliv-queue",
             "eventSource": "aws:sqs",
             "awsRegion": "us-east-1"
         }

@@ -28,7 +28,7 @@ aws lambda add-permission \
 
 aws lambda create-event-source-mapping \
     --function-name processa_boletos_lambda \
-    --event-source-arn arn:aws:sqs:us-east-1:000000000000:42sp-MATHERIB-queue
+    --event-source-arn arn:aws:sqs:us-east-1:000000000000:42sp-rde-oliv-queue
 
 #python3 upload_boletos.py ../remessas/boletos_0003.csv 
 #aws dynamodb scan --table-name Boletos

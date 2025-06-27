@@ -4,7 +4,7 @@ import csv
 import tempfile
 import io
 
-#python3 processa_boletos.py 42sp-matherib-boletos boletos_0000.csv
+#python3 processa_boletos.py 42sp-rde-oliv-boletos boletos_0000.csv
 def load(csv_reader, tablename='Boletos'):
     inseridos, atualizados, ignorados = 0, 0, 0
         

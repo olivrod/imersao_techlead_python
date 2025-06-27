@@ -1,1 +1,1 @@
-aws sqs create-queue --queue-name 42sp-MATHERIB-queue 
+aws sqs create-queue --queue-name 42sp-rde-oliv-queue 

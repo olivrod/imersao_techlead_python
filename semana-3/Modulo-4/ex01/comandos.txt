@@ -1,3 +1,5 @@
+source ../../prod.env
+
 Listar policies anexadas ao role StudentRoleDay04:
 aws iam list-attached-role-policies \
   --role-name StudentRoleDay04 \

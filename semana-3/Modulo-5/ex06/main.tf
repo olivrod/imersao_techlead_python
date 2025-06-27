@@ -21,11 +21,11 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "bucket" {
-    bucket = "42sp-matherib-boletos"
+    bucket = "42sp-rde-oliv-boletos"
 }
 
 resource "aws_sqs_queue" "queue" {
-    name = "42sp-MATHERIB-queue"
+    name = "42sp-rde-oliv-queue"
 }
 
 resource "aws_sqs_queue_policy" "sqs_policy" {
@@ -43,10 +43,10 @@ resource "aws_sqs_queue_policy" "sqs_policy" {
                 "Action": [
                     "SQS:SendMessage"
                 ],
-                "Resource": "arn:aws:sqs:us-east-1:000000000000:42sp-MATHERIB-queue",
+                "Resource": "arn:aws:sqs:us-east-1:000000000000:42sp-rde-oliv-queue",
                 "Condition": {
                     "ArnLike": {
-                        "aws:SourceArn": "arn:aws:s3:*:*:42sp-matherib-boletos"
+                        "aws:SourceArn": "arn:aws:s3:*:*:42sp-rde-oliv-boletos"
                     },
                     "StringEquals": {
                         "aws:SourceAccount": "000000000000"

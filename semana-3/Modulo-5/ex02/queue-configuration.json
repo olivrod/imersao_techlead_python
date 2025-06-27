@@ -1,7 +1,7 @@
 {
 	"QueueConfigurations": [
 	  {
-		"QueueArn": "arn:aws:sqs:us-east-1:000000000000:42sp-MATHERIB-queue",
+		"QueueArn": "arn:aws:sqs:us-east-1:000000000000:42sp-rde-oliv-queue",
 		"Events": [
 		  "s3:ObjectCreated:*"
 		]
