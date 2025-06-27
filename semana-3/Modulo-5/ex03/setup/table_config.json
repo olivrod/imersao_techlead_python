@@ -1,0 +1,22 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "id",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "Boletos",
+    "KeySchema": [
+        {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+        }
+    ],
+    "BillingMode": "PROVISIONED",
+    "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+    },
+    "TableClass": "STANDARD",
+    "DeletionProtectionEnabled": false
+}

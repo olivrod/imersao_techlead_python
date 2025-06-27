@@ -1,0 +1,3 @@
+{
+    "Policy": "{\"Version\":\"2012-10-17\",\"Id\":\"Allow-S3-SendMessage-Policy\",\"Statement\":[{\"Sid\":\"Allow-S3-SendMessage\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"s3.amazonaws.com\"},\"Action\":[\"SQS:SendMessage\"],\"Resource\":\"arn:aws:sqs:us-east-1:000000000000:42sp-MATHERIB-queue\",\"Condition\":{\"ArnEquals\":{\"aws:SourceArn\":\"arn:aws:s3:*:*:42sp-matherib-boletos\"}}}]}"
+}
